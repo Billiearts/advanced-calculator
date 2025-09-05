@@ -21,7 +21,7 @@ app.use(
 app.use(express.json());
 
 // health
-app.get("*/health", (req, res) => res.json({ message: "pong" }));
+app.get("/health", (req, res) => res.json({ message: "pong" }));
 
 // routes
 import authRoutes from "./routes/authRoutes";
