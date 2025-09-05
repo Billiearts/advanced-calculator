@@ -11,7 +11,13 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://advanced-calcu.netlify.app"], 
+    methods: ["GET", "POST", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // health
