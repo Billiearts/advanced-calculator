@@ -3,11 +3,13 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI as string);
+    const uri = process.env.MONGO_URI;
+    if (!uri) throw new Error("MONGO_URI not defined in .env");
+    const conn = await mongoose.connect(uri);
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error("❌ MongoDB connection error:", error);
-    process.exit(1); // Exit app if DB connection fails
+    process.exit(1);
   }
 };
 
