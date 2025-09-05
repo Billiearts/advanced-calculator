@@ -1,1 +1,3 @@
 # Scientific & Financial Calculator (MERN + TypeScript)
+.env
+.env.*
